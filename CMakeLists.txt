@@ -5,9 +5,10 @@ set(CMAKE_C_STANDARD 11)
 
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(GTK REQUIRED gtk+-3.0)
+pkg_check_modules(GSTREAMER REQUIRED gstreamer-1.0)
 
-include_directories(${GTK_INCLUDE_DIRS})
-link_directories(${GTK_LIBRARY_DIRS})
+include_directories(${GTK_INCLUDE_DIRS}  ${GSTREAMER_INCLUDE_DIRS})
+link_directories(${GTK_LIBRARY_DIRS}  ${GSTREAMER_LIBRARY_DIRS})
 
 add_executable(untitled1 main.c)
-target_link_libraries(untitled1 ${GTK_LIBRARIES})
+target_link_libraries(untitled1 ${GTK_LIBRARIES} ${GSTREAMER_LIBRARIES})
