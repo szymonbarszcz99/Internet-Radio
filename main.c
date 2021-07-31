@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <gtk/gtk.h>
 #include <gst/gst.h>
-#include "ports/player_control.h"
-#include "ports/gui_port.h"
+#include "player/player_data.h"
+#include "gui/gui_init.h"
 
-void player_init(struct player_control* player){
+void player_init(player_data* player){
 
     gst_init(NULL, NULL);
 
@@ -15,14 +15,14 @@ void player_init(struct player_control* player){
 
 int main(int argc, char *argv[]) {
     GtkApplication* app;
-    struct player_control* player;
+    player_data player;
 
-    memset(player, 0, sizeof(struct player_control));
+    memset(&player, 0, sizeof(player_data));
 
-    player_init(player);
+    player_init(&player);
 
     app = gtk_application_new("org.radio",G_APPLICATION_FLAGS_NONE);
-    g_signal_connect (app, "activate", G_CALLBACK (gui_init), player);
+    g_signal_connect (app, "activate", G_CALLBACK (gui_init), &player);
 
     g_application_run(app,NULL,NULL);
     return 0;

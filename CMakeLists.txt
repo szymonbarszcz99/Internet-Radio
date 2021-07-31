@@ -10,5 +10,5 @@ pkg_check_modules(GSTREAMER REQUIRED gstreamer-1.0)
 include_directories(${GTK_INCLUDE_DIRS}  ${GSTREAMER_INCLUDE_DIRS})
 link_directories(${GTK_LIBRARY_DIRS}  ${GSTREAMER_LIBRARY_DIRS})
 
-add_executable(untitled1 main.c ports/gui_port.c ports/gui_port.h ports/player_control.h)
+add_executable(untitled1 main.c gui/gui_init.c gui/gui_init.h player/player_data.h gui/widgets_init.c gui/widgets_init.h gui/gui_elements.h)
 target_link_libraries(untitled1 ${GTK_LIBRARIES} ${GSTREAMER_LIBRARIES})
