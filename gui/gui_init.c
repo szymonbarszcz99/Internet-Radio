@@ -35,11 +35,19 @@ void connect_callbacks(gui_elements *elements, player_data *player) {
 }
 
 void play_callback(GtkButton *play_button, player_data *player) {
+    station play = get_station();
+
+    player->pipeline = gst_parse_launch(play.link, NULL);
+
     gst_element_set_state(player->pipeline, GST_STATE_PLAYING);
 }
 
 void pause_callback(GtkButton *pause_button, player_data *player) {
     gst_element_set_state(player->pipeline, GST_STATE_PAUSED);
+}
+
+void next_callback(GtkButton *next_station_button, player_data *player){
+
 }
 
 void attach_to_grid(gui_elements* elements){
