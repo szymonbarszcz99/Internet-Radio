@@ -11,6 +11,8 @@ typedef struct station{
 
 station *stations;
 
+int number_of_stations;
+
 int count_lines(FILE* file);
 
 void read_links();

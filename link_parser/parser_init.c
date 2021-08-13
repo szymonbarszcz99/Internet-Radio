@@ -7,6 +7,7 @@ int count_lines(FILE* file){
         if(read_sign == '\n')lines++;
     }
     rewind(file);
+    printf("%d",lines);
     return lines;
 }
 
@@ -19,22 +20,19 @@ void read_links(){
         exit(2);
     }
 
-    int lines = count_lines(links);
-    stations = malloc(lines/2 * sizeof(station));
+    number_of_stations = count_lines(links)/2;
+    stations = malloc(number_of_stations * sizeof(station));
 
-    for(int i=0; i<lines/2; i++){
+    for(int i=0; i<number_of_stations; i++){
         char station_link[512];
-        char link_prefix[512] = "playbin uri=";
 
         fgets(stations[i].name, 512, links);
-        fgets(station_link, 512, links);
+        fgets(stations[i].link, 512, links);
 
-        station_link[strcspn(station_link,"\n")] = 0;
-
-        strcpy(stations[i].link, strcat(link_prefix,station_link));
+        stations[i].link[strcspn(stations[i].link,"\n")] = 0;
     }
 
-    for(int i=0; i<lines/2; i++){
+    for(int i=0; i<number_of_stations; i++){
         printf("%s\n%s\n",stations[i].name,stations[i].link);
     }
 }
