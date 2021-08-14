@@ -8,7 +8,6 @@
 
 int main() {
     GtkApplication* app;
-    player_data player;
 
     memset(&player, 0, sizeof(player_data));
 

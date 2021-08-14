@@ -2,12 +2,10 @@
 #define UNTITLED1_GUI_INIT_H
 
 #include <gtk/gtk.h>
-#include "../player/player_data.h"
+#include "../gui_event_handler.h"
 #include "gui_elements.h"
 #include "widgets_init.h"
-#include "../link_parser/parser_init.h"
-#include "../link_parser/get_stations.h"
-#include "../player/player_functions.h"
+
 
 void gui_init(GtkApplication* app, player_data* player);
 

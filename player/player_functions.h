@@ -2,10 +2,10 @@
 #define UNTITLED1_PLAYER_FUNCTIONS_H
 #include "player_data.h"
 
-void play(const char* uri, player_data* player);
+void play();
 
-void next_station(const char* uri, player_data* player);
+void next_station(const char* uri);
 
-void pause_stream(player_data* player);
+void pause_stream();
 
 #endif //UNTITLED1_PLAYER_FUNCTIONS_H
