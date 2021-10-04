@@ -24,6 +24,8 @@ void gui_init(GtkApplication* app){
     attach_to_grid(&elements);
 
     gtk_widget_show_all(elements.window);
+
+    clicked_play();
 }
 
 void connect_callbacks(gui_elements *elements) {

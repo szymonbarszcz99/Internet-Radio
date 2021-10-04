@@ -1,10 +1,10 @@
 #include "player_functions.h"
 
-void play(){
+void play_stream(){
     gst_element_set_state(player.pipeline, GST_STATE_PLAYING);
 }
 
-void next_station(const char* uri){
+void next_stream(const char* uri){
     gst_element_set_state(player.pipeline, GST_STATE_READY);
 
     g_object_set(player.pipeline, "uri", uri,NULL);
