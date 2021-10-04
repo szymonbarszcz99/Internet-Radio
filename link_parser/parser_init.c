@@ -24,7 +24,7 @@ void read_links(){
     stations = malloc(number_of_stations * sizeof(station));
 
     for(int i=0; i<number_of_stations; i++){
-        char station_link[512];
+
 
         fgets(stations[i].name, 512, links);
         fgets(stations[i].link, 512, links);

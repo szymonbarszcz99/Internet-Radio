@@ -1,6 +1,6 @@
 #include "gui_init.h"
 
-void gui_init(GtkApplication* app, player_data* player){
+void gui_init(GtkApplication* app){
     gui_elements elements;
 
     memset(&elements, 0, sizeof(gui_elements));
@@ -19,14 +19,14 @@ void gui_init(GtkApplication* app, player_data* player){
 
     create_buttons(&elements);
 
-    connect_callbacks(&elements,player);
+    connect_callbacks(&elements);
 
     attach_to_grid(&elements);
 
     gtk_widget_show_all(elements.window);
 }
 
-void connect_callbacks(gui_elements *elements, player_data *player) {
+void connect_callbacks(gui_elements *elements) {
 
     g_signal_connect (G_OBJECT (elements->play_button), "clicked", G_CALLBACK (clicked_play), NULL);
 
