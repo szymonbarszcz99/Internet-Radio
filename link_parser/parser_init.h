@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "exceptions_handler.h"
 
 typedef struct station{
     char name[512];
