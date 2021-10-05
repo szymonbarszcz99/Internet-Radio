@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "exceptions_handler.h"
 
 typedef struct station{
     char name[512];
@@ -11,7 +12,7 @@ typedef struct station{
 
 station *stations;
 
-int number_of_stations;
+static int number_of_stations;
 
 int count_lines(FILE* file);
 
