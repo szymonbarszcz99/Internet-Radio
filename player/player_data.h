@@ -6,4 +6,6 @@ typedef struct _player_data{
     GstElement* pipeline;
 } player_data;
 
+player_data player;
+
 #endif //UNTITLED1_PLAYER_DATA_H

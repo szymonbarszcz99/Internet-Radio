@@ -1,6 +1,6 @@
 #include "gui_init.h"
 
-void gui_init(GtkApplication* app, player_data* player){
+void gui_init(GtkApplication* app){
     gui_elements elements;
 
     memset(&elements, 0, sizeof(gui_elements));
@@ -19,36 +19,22 @@ void gui_init(GtkApplication* app, player_data* player){
 
     create_buttons(&elements);
 
-    connect_callbacks(&elements,player);
+    connect_callbacks(&elements);
 
     attach_to_grid(&elements);
 
     gtk_widget_show_all(elements.window);
+
+    clicked_play();
 }
 
-void connect_callbacks(gui_elements *elements, player_data *player) {
+void connect_callbacks(gui_elements *elements) {
 
-    g_signal_connect (G_OBJECT (elements->play_button), "clicked", G_CALLBACK (play_callback), player);
+    g_signal_connect (G_OBJECT (elements->play_button), "clicked", G_CALLBACK (clicked_play), NULL);
 
-    g_signal_connect (G_OBJECT (elements->pause_button), "clicked", G_CALLBACK (pause_callback), player);
+    g_signal_connect (G_OBJECT (elements->pause_button), "clicked", G_CALLBACK (clicked_pause), NULL);
 
-    g_signal_connect(G_OBJECT(elements->next_station_button),"clicked", G_CALLBACK(next_callback), player);
-}
-
-void play_callback(GtkButton *play_button, player_data *player) {
-    station to_play = get_station();
-
-    play(to_play.link, player);
-}
-
-void pause_callback(GtkButton *pause_button, player_data *player) {
-    pause_stream(player);
-}
-
-void next_callback(GtkButton *next_station_button, player_data *player){
-    station to_change = get_next_station();
-
-    next_station(to_change.link,player);
+    g_signal_connect(G_OBJECT(elements->next_station_button),"clicked", G_CALLBACK(clicked_next), NULL);
 }
 
 void attach_to_grid(gui_elements* elements){

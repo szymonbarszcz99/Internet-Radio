@@ -5,6 +5,6 @@
 #include <string.h>
 #include "../link_parser/get_stations.h"
 
-void player_init(player_data* player, char* first_uri);
+void player_init(char* first_uri);
 
 #endif //UNTITLED1_PLAYER_INIT_H
