@@ -13,23 +13,28 @@ int count_lines(FILE* file){
 
 void read_links(){
     FILE* links;
-    links = fopen("../stations.txt", "r");
+    links = fopen("../stations.csv", "r");
 
     if(links == NULL){
         printf("Cannot open file");
         exit(2);
     }
 
-    number_of_stations = count_lines(links)/2;
+    number_of_stations = count_lines(links);
     stations = malloc(number_of_stations * sizeof(station));
 
     for(int i=0; i<number_of_stations; i++){
+        char tmp_line[1024];
 
+        fgets(tmp_line, 1024, links);
+        tmp_line[strlen(tmp_line)-1] = '\0';    //delete new line from link
 
-        fgets(stations[i].name, 512, links);
-        fgets(stations[i].link, 512, links);
+        char* token = strtok(tmp_line,",");
+        memcpy(stations[i].name,token, strlen(token));
 
-        stations[i].link[strcspn(stations[i].link,"\n")] = 0;
+        token = strtok(NULL,",");
+        memcpy(stations[i].link,token,strlen(token));
+
     }
 
     for(int i=0; i<number_of_stations; i++){
