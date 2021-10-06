@@ -1,17 +1,16 @@
 #include "exceptions_handler.h"
 
 void no_file(){
-    puts("No file stations.csv");
-    exit(1);
+    throw_dialog("No stations.csv file");
 }
 
 void no_data(){
-    puts("No data in file");
-    exit(2);
+    throw_dialog("Empty file");
 }
 
 void empty_link(int line){
-    printf("No link on line %d", line);
-    exit(3);
+    char error_text[80];
+    sprintf(error_text, "No link on line %d",line);
+    throw_dialog(error_text);
 }
 

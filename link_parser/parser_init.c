@@ -1,3 +1,4 @@
+#pragma once
 #include "parser_init.h"
 
 int count_lines(FILE* file){
@@ -19,7 +20,7 @@ void read_links(){
         no_file();
     }
 
-    if((number_of_stations = count_lines(links)) == 0)no_data();
+    if((number_of_stations = count_lines(links)) == 0){puts("No data");no_data();}
     stations = malloc(number_of_stations * sizeof(station));
 
     for(int i=0; i<number_of_stations; i++){

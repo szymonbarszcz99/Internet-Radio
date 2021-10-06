@@ -1,3 +1,4 @@
+#pragma once
 #include "get_stations.h"
 
 station get_station(){

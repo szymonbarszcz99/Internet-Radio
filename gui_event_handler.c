@@ -11,3 +11,7 @@ void clicked_pause() {
 void clicked_next() {
     next();
 }
+
+void throw_dialog(const char* error_string){
+    construct_dialog(error_string);
+}

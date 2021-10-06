@@ -1,6 +1,7 @@
+#pragma once
 #ifndef UNTITLED1_GET_STATIONS_H
 #define UNTITLED1_GET_STATIONS_H
-#include "parser_init.h"
+#include "station.h"
 
 static int current_station = 0;
 

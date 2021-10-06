@@ -1,34 +1,36 @@
 #include "gui_init.h"
 
 void gui_init(GtkApplication* app){
-    gui_elements elements;
 
-    memset(&elements, 0, sizeof(gui_elements));
+    elements = malloc(sizeof(gui_elements));
 
-    if(app!=NULL)elements.app = app;
+    memset(elements, 0, sizeof(gui_elements));
+
+    if(app!=NULL)elements->app = app;
     else{
         printf("GtkApplication was not created");
         exit(1);
     }
 
-    create_window(&elements);
+    create_window();
 
-    create_grid(&elements);
+    create_grid();
 
-    elements.label = gtk_label_new("Click play");
+    elements->label = gtk_label_new("Click play");
 
-    create_buttons(&elements);
+    create_buttons();
 
-    connect_callbacks(&elements);
+    connect_callbacks();
 
-    attach_to_grid(&elements);
+    attach_to_grid();
 
-    gtk_widget_show_all(elements.window);
+    gtk_widget_show_all(elements->window);
 
-    clicked_play();
+    //clicked_play();
+
 }
 
-void connect_callbacks(gui_elements *elements) {
+void connect_callbacks() {
 
     g_signal_connect (G_OBJECT (elements->play_button), "clicked", G_CALLBACK (clicked_play), NULL);
 
@@ -37,7 +39,7 @@ void connect_callbacks(gui_elements *elements) {
     g_signal_connect(G_OBJECT(elements->next_station_button),"clicked", G_CALLBACK(clicked_next), NULL);
 }
 
-void attach_to_grid(gui_elements* elements){
+void attach_to_grid(){
     gtk_grid_attach(GTK_GRID(elements->grid_container),elements->label,0,0,3,1);
     gtk_grid_attach(GTK_GRID(elements->grid_container), elements->play_button,0,1,1,1);
     gtk_grid_attach(GTK_GRID(elements->grid_container),elements->pause_button,1,1,1,1);

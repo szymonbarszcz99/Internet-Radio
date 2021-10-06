@@ -9,9 +9,9 @@
 
 void gui_init(GtkApplication* app);
 
-void connect_callbacks(gui_elements* elements);
+void connect_callbacks();
 
-void attach_to_grid(gui_elements* elements);
+void attach_to_grid();
 
 
 #endif //UNTITLED1_GUI_INIT_H
