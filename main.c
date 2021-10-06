@@ -1,7 +1,4 @@
 #include <stdio.h>
-#include <gtk/gtk.h>
-#include <gst/gst.h>
-#include "player/player_data.h"
 #include "player/player_init.h"
 #include "gui/gui_init.h"
 #include "link_parser/parser_init.h"

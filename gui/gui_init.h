@@ -3,9 +3,6 @@
 
 #include <gtk/gtk.h>
 #include "../gui_event_handler.h"
-#include "gui_elements.h"
-#include "widgets_init.h"
-
 
 void gui_init(GtkApplication* app);
 
