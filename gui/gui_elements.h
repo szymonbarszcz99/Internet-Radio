@@ -13,4 +13,6 @@ typedef struct gui_elements{
     GtkWidget* label;
 }gui_elements;
 
+gui_elements* elements;
+
 #endif //UNTITLED1_GUI_ELEMENTS_H

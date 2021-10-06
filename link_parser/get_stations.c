@@ -1,10 +1,11 @@
+#pragma once
 #include "get_stations.h"
 
-station get_station(){
-    return stations[current_station];
+station* get_station(){
+    return &stations[current_station];
 }
 
-station get_next_station(){
+station* get_next_station(){
     if(current_station == number_of_stations-1){
         current_station = 0;
     }

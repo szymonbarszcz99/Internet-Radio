@@ -4,11 +4,11 @@
 #include <gtk/gtk.h>
 #include "gui_elements.h"
 
-void create_window(gui_elements* elements);
+void create_window();
 
-void create_grid(gui_elements* elements);
+void create_grid();
 
-void create_buttons(gui_elements* elements);
+void create_buttons();
 
-
+void construct_dialog(const char* error_string);
 #endif //UNTITLED1_WIDGETS_INIT_H

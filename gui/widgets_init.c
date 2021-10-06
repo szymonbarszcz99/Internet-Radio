@@ -1,6 +1,6 @@
 #include "widgets_init.h"
 
-void create_window(gui_elements* elements){
+void create_window(){
     elements->window = gtk_application_window_new(elements->app);
 
     gtk_window_maximize(elements->window);
@@ -10,14 +10,14 @@ void create_window(gui_elements* elements){
 
 }
 
-void create_grid(gui_elements* elements){
+void create_grid(){
 
     elements->grid_container = gtk_grid_new();
     gtk_container_add(elements->window,elements->grid_container);
 
 }
 
-void create_buttons(gui_elements *elements) {
+void create_buttons() {
     elements->play_button = gtk_button_new_from_icon_name("media-playback-start", GTK_ICON_SIZE_LARGE_TOOLBAR);
     gtk_widget_set_margin_end(elements->play_button,10);
 
@@ -28,4 +28,10 @@ void create_buttons(gui_elements *elements) {
     elements->next_station_button = gtk_button_new_from_icon_name("media-seek-forward",GTK_ICON_SIZE_LARGE_TOOLBAR);
     gtk_widget_set_margin_start(elements->next_station_button,10);
 
+}
+
+void construct_dialog(const char* error_string){
+    GtkWidget* dialog = gtk_message_dialog_new(elements->window, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, error_string);
+    gtk_dialog_run(GTK_DIALOG(dialog));
+    gtk_widget_destroy(dialog);
 }

@@ -3,10 +3,9 @@
 
 #include "player/player_functions.h"
 #include "link_parser/get_stations.h"
-
 void play();
 
-void next();
+const char* next();
 
 void pause_s();
 
