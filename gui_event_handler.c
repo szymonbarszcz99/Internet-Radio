@@ -9,9 +9,13 @@ void clicked_pause() {
 }
 
 void clicked_next() {
-    next();
+    update_label(next());
 }
 
 void throw_dialog(const char* error_string){
     construct_dialog(error_string);
+}
+
+void update_label(const char* station_name){
+    gtk_label_set_text(elements->label,station_name);
 }

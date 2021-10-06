@@ -11,4 +11,6 @@ void no_data();
 
 void empty_link(int line);
 
+void set_name(const char* station_name);
+
 #endif //UNTITLED1_EXCEPTIONS_HANDLER_H

@@ -14,3 +14,7 @@ void empty_link(int line){
     throw_dialog(error_text);
 }
 
+void set_name(const char* station_name){
+    update_label(station_name);
+}
+

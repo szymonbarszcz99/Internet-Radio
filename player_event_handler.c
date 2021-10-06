@@ -8,8 +8,10 @@ void pause_s(){
     pause_stream();
 }
 
-void next(){
-    station to_change = get_next_station();
+const char* next(){
+    station* to_change = get_next_station();
 
-    next_stream(to_change.link);
+    next_stream(to_change->link);
+
+    return to_change->name;
 }

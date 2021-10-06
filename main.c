@@ -10,8 +10,9 @@ void start_app(GtkApplication* app){
     char start_uri[512];
     gui_init(app);
     read_links();
-    add_prefix(strcpy(start_uri,get_station().link));
+    add_prefix(strcpy(start_uri,get_station()->link));
     player_init(start_uri);
+    clicked_play();
 }
 
 int main() {
@@ -21,11 +22,6 @@ int main() {
 
     app = gtk_application_new("org.radio",G_APPLICATION_FLAGS_NONE);
     g_signal_connect (app, "activate", G_CALLBACK (start_app), NULL);
-
-    //read_links();
-
-    //add_prefix(strcpy(start_uri,get_station().link));
-    //player_init(start_uri);
 
     g_application_run(app,NULL,NULL);
     return 0;

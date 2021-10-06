@@ -5,9 +5,9 @@
 
 static int current_station = 0;
 
-station get_station();
+station* get_station();
 
-station get_next_station();
+station* get_next_station();
 
 void add_prefix(char* uri);
 

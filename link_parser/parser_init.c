@@ -42,5 +42,7 @@ void read_links(){
     for(int i=0; i<number_of_stations; i++){
         printf("%s %s\n",stations[i].name,stations[i].link);
     }
+
+    set_name(stations[0].name);
 }
 
