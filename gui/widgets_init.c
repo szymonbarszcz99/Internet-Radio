@@ -30,8 +30,15 @@ void create_buttons() {
 
 }
 
-void construct_dialog(const char* error_string){
-    GtkWidget* dialog = gtk_message_dialog_new(elements->window, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, error_string);
-    gtk_dialog_run(GTK_DIALOG(dialog));
-    gtk_widget_destroy(dialog);
+GtkWidget* construct_dialog(const char* error_string){
+    return gtk_message_dialog_new(elements->window, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, error_string);
+
+}
+
+void clear_gui_elements(){
+    g_object_unref(elements->window);
+
+    g_object_unref(elements->app);
+
+    free(elements);
 }

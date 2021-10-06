@@ -14,4 +14,6 @@ void throw_dialog(const char* error_string);
 
 void update_label(const char* station_name);
 
+void clear_and_exit();
+
 #endif //UNTITLED1_GUI_EVENT_HANDLER_H

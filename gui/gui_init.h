@@ -10,5 +10,4 @@ void connect_callbacks();
 
 void attach_to_grid();
 
-
 #endif //UNTITLED1_GUI_INIT_H

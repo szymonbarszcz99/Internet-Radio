@@ -11,4 +11,6 @@ station* get_next_station();
 
 void add_prefix(char* uri);
 
+void clear_stations();
+
 #endif //UNTITLED1_GET_STATIONS_H

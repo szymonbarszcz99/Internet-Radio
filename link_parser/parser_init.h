@@ -10,4 +10,6 @@ int count_lines(FILE* file);
 
 void read_links();
 
+void clear_stations();
+
 #endif //UNTITLED1_PARSER_INIT_H

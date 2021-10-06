@@ -25,3 +25,7 @@ void add_prefix( char* uri){
     strcpy(uri, strcat(link_prefix,uri));
 
 }
+
+void clear_stations(){
+    free(stations);
+}

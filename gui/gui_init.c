@@ -26,8 +26,6 @@ void gui_init(GtkApplication* app){
 
     gtk_widget_show_all(elements->window);
 
-    //clicked_play();
-
 }
 
 void connect_callbacks() {
@@ -45,3 +43,4 @@ void attach_to_grid(){
     gtk_grid_attach(GTK_GRID(elements->grid_container),elements->pause_button,1,1,1,1);
     gtk_grid_attach(GTK_GRID(elements->grid_container),elements->next_station_button,2,1,1,1);
 }
+

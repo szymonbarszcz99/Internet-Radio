@@ -13,9 +13,21 @@ void clicked_next() {
 }
 
 void throw_dialog(const char* error_string){
-    construct_dialog(error_string);
+    GtkWidget* dialog = construct_dialog(error_string);
+    g_signal_connect(dialog,"response",clear_and_exit,NULL);
+    gtk_dialog_run(GTK_DIALOG(dialog));
+    gtk_widget_destroy(dialog);
+    free(error_string);
+    clear_and_exit();
 }
 
 void update_label(const char* station_name){
     gtk_label_set_text(elements->label,station_name);
+}
+
+void clear_and_exit(){
+    clear_gui_elements();
+    clear_stations();
+    free(player.pipeline);
+    exit(1);
 }
