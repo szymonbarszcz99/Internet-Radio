@@ -1,7 +1,10 @@
 #pragma once
+
+#include <stdio.h>
 #include "get_stations.h"
 
 station* get_station(){
+    printf("%d - %d\n",current_station,number_of_stations);
     return &stations[current_station];
 }
 

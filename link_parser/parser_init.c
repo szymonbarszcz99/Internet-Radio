@@ -19,8 +19,9 @@ void read_links(){
     if(links == NULL){
         no_file();
     }
-
-    if((number_of_stations = count_lines(links)) == 0){puts("No data");no_data();}
+    number_of_stations = count_lines(links);
+    printf("Number of stations = %d\n",number_of_stations);
+    if(number_of_stations == 0)no_data();
     stations = malloc(number_of_stations * sizeof(station));
 
     for(int i=0; i<number_of_stations; i++){

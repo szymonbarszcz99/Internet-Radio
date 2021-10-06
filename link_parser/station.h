@@ -8,6 +8,6 @@ typedef struct station{
 
 station *stations;
 
-static int number_of_stations;
+int number_of_stations;
 
 #endif //UNTITLED1_STATION_H
