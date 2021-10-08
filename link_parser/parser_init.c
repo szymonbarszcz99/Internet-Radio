@@ -17,6 +17,7 @@ void read_links(){
     links = fopen("../stations.csv", "r");
 
     if(links == NULL){
+        printf("Error %d opening file\n", errno);
         no_file();
     }
     number_of_stations = count_lines(links);
