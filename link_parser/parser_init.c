@@ -1,10 +1,9 @@
-#pragma once
 #include "parser_init.h"
 
 int count_lines(FILE* file){
     int lines = 0;
-    char read_sign;
-    while((read_sign = getc(file)) != EOF){
+    int read_sign;
+    while((read_sign = fgetc(file)) != EOF){
         if(read_sign == '\n')lines++;
     }
     rewind(file);
@@ -16,10 +15,11 @@ void read_links(){
     FILE* links;
     links = fopen("../stations.csv", "r");
 
-    if(links == NULL){
+    if(!links){
         printf("Error %d opening file\n", errno);
         no_file();
     }
+
     number_of_stations = count_lines(links);
     printf("Number of stations = %d\n",number_of_stations);
     if(number_of_stations == 0)no_data();
@@ -37,13 +37,13 @@ void read_links(){
 
         token = strtok(NULL,",");
         if(token == NULL){
-            close(links);
+            fclose(links);
             empty_link(i);
             break;
         }
         memcpy(stations[i].link,token,strlen(token));
     }
-    close(links);
+    fclose(links);
     for(int i=0; i<number_of_stations; i++){
         printf("%s %s\n",stations[i].name,stations[i].link);
     }

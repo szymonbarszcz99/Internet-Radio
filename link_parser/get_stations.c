@@ -1,5 +1,3 @@
-#pragma once
-
 #include <stdio.h>
 #include "get_stations.h"
 

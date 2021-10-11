@@ -1,4 +1,3 @@
-#pragma once
 #ifndef UNTITLED1_PARSER_INIT_H
 #define UNTITLED1_PARSER_INIT_H
 #include <stdio.h>

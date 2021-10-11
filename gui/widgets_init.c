@@ -3,10 +3,10 @@
 void create_window(){
     elements->window = gtk_application_window_new(elements->app);
 
-    gtk_window_maximize(elements->window);
-    gtk_window_set_deletable(elements->window,FALSE);
+    //gtk_window_maximize(elements->window);
+    //gtk_window_set_deletable(elements->window,FALSE);
     gtk_window_set_title(elements->window,"Internet radio");
-    gtk_window_set_resizable(elements->window,FALSE);
+    //gtk_window_set_resizable(elements->window,FALSE);
 
 }
 

@@ -19,7 +19,6 @@ int main() {
 
     app = gtk_application_new("org.radio",G_APPLICATION_FLAGS_NONE);
     g_signal_connect (app, "activate", G_CALLBACK (start_app), NULL);
-
     g_application_run(app,NULL,NULL);
     return 0;
 }

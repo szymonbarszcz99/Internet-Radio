@@ -17,7 +17,7 @@ void throw_dialog(const char* error_string){
     g_signal_connect(dialog,"response",clear_and_exit,NULL);
     gtk_dialog_run(GTK_DIALOG(dialog));
     gtk_widget_destroy(dialog);
-    free(error_string);
+    //free(error_string);
     clear_and_exit();
 }
 
@@ -26,7 +26,8 @@ void update_label(const char* station_name){
 }
 
 void clear_and_exit(){
-    clear_gui_elements();
+    //clear_gui_elements();
+    gtk_window_close(elements->window);
     clear_stations();
     free(player.pipeline);
     exit(1);
